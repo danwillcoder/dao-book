@@ -52,3 +52,35 @@ Chinese medicine practitioners who want a streamlined and simplified patient rec
 - Json Web Tokens
 - Nodemailer
 
+
+
+
+
+
+<br><br><br><br><br><br><br><br><br>
+
+## Planning Methodology
+
+Trello has been chosen as the platform for keeping track of this project. 
+
+The Trello board will utilise five lists in which to group tasks:
+- Backlog
+- In Dev
+- For Review
+- Dev Done
+- Done
+
+***Trello Flow***
+
+1. Ascertain tasks to be completed, write tasks into the **Backlog** list. 
+2. Task is picked from the **Backlog**, and put into **In Dev** once begun.
+3. Once task is relatively done, transfer task into **For Review**, where task is reviewed by other team member, which may entail further discourse about the task. 
+4. If task needs more work, goes back into **In Dev**. If the *development* aspects of the task are done, but the task still requires other additional work such as documentation etc., the task is moved to **Dev Done**, with an accompanying note indicating what else needs to be done. 
+5. Tasks are only moved to the final **Done** list when all aspects of a task are complete. 
+
+
+<br><br><br>
+
+-------------------
+## Trello Images here later
+-------------------
