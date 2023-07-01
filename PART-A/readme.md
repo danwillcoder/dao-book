@@ -129,6 +129,83 @@ The Trello board will utilise five lists in which to group tasks:
 10. The JWT in the token field is validated. If successful, a confirmation message is sent with a status code of 200. If it fails, an error is sent.
 11. If the client receives a successful JWT, the user is redirected to the application. Otherwise, an error is displayed.
 
+#### GET PATIENT LIST
+
+1. The client submits a GET request. This GET request comes with a JWT token in the Header.
+2. The JWT is validated. If it fails validation, an error is thrown to Step 3. Otherwise, proceed to Step 4.
+3. The error is returned by the server containing information about the incorrectly supplied request with a status code of 403 Unauthorized.
+4. Using the practitionerId inside the JWT, we make a DB request for all the patients associated with the ID. If unsuccessful, an error is thrown to Step 5. Otherwise, proceed to Step 6.
+5. The error is returned by the server. This error remains vague as to not divulge DB information.
+6. The practitionerId is used to get all patient Documents from the server. 
+7. The list of patients is sent in a JSON format to the client.
+8. The response from the server contains either an Error object or the patient list.
+
+#### UPDATE PATIENT INFO
+
+1. The client submits a PUT request. This PUT request contains a JWT in the Header, and JSON as the body containing the patientId, and the new patient information.
+2. The request is validated. In this case, the patientId must be a string. The fields must be strings. If it fails validation, an error is thrown to Step 3. Otherwise, proceed to Step 4.
+3. The error is returned by the server containing information about the incorrectly supplied request with a status code of 403 Unauthorized.
+4. The JWT is validated. If it fails validation, an error is thrown to Step 5. Otherwise, proceed to Step 6.
+5. The error is returned by the server containing information about the incorrectly supplied request with a status code of 403 Unauthorized.
+6. The patientId is used to send an update to the database. If unsuccessful, an error is thrown to Step 8. Otherwise, proceed to step 9.
+7. The patientId updates the Document in the database. The update returns the Document.
+8. The error is returned by the server. This error remains vague as to not divulge DB information.
+9. The updated patient info is sent in a JSON format to the client.
+10. The response from the server contains either an Error object or the new patient Document.
+
+#### CREATE CONSULTATION
+
+1. The client submits a POST request containing the new consultation information. This POST request comes from an HTML form.
+2. The request content is validated, ensuring all required fields are populated and of the correct datatype. In this case, the consultation fields must be strings, or a date. If this is not the case, an error is thrown to Step 3. Otherwise, proceed to Step 4.
+3. The error is returned by the server containing information about the incorrectly supplied request.
+4. The JWT is validated. If it fails validation, an error is thrown to Step 5. Otherwise, proceed to Step 6.
+5. The error is returned by the server containing information about the incorrectly supplied request with a status code of 403 Unauthorized.
+6. The patientId is confirmed to exist. If the patient does not exist, we throw an Error to Step 8. Otherwise, proceed to Step 9.
+7. The patientId is sent to the database.
+8. The error is returned by the server. This error remains vague as to not divulge DB information.
+9. A new consultation is created on the server and populated with the fields from the request. This document is sent to the database. If an error is encountered, it is sent instead of the new consultation.
+10. The consultation is a new Document.
+11. The response from server contains either an Error object or the new Consultation with a status code of 201.
+
+#### GET CONSULTATIONS
+
+1. The client submits a POST request. This POST request contains a JWT in the Header and JSON as the body containing the patientId.
+2. The request is validated. In this case, the patientId must be a string. If it fails validation, an error is thrown to Step 3. Otherwise, proceed to Step 4.
+3. The error is returned by the server containing information about the incorrectly supplied request with a status code of 403 Unauthorized.
+4. The JWT is validated. If it fails validation, an error is thrown to Step 5. Otherwise, proceed to Step 6.
+5. The error is returned by the server containing information about the incorrectly supplied request with a status code of 403 Unauthorized.
+6. All consultations related to that patient are requested from the database. If the patient does not exist, no consultations are returned, but the request is still considered valid. If another error is encountered, it is thrown to Step 8. Otherwise, proceed to Step 9.
+7. The patientId is sent to the database.
+8. The error is returned by the server. This error remains vague as to not divulge DB information.
+9. All consultation Documents related to the patientId are sent to the client.
+10. The response from server contains either an Error object or the consultation list with a status code of 200.
+
+####UPDATE CONSULTATION
+
+1. The client submits a PUT request. This PUT request contains a JWT in the Header, and JSON as the body containing the consultationId and the new consultation info.
+2. The request is validated. In this case, the consultationId must be a string. The fields must be strings. If it fails validation, an error is thrown to Step 3. Otherwise, proceed to Step 4.
+3. The error is returned by the server containing information about the incorrectly supplied request with a status code of 400 Bad Request.
+4. The JWT is validated. If it fails validation, an error is thrown to Step 5. Otherwise, proceed to Step 6.
+5. The error is returned by the server containing information about the incorrectly supplied request with a status code of 403 Unauthorized.
+6. The consultation update is sent to the database. If an error is encountered, it is thrown to Step 8. Otherwise, proceed to step 9.
+7. The consultationId and the new consultation fields are sent to the database.
+8. The error is returned by the server. This error remains vague as to not divulge DB information.
+9. The updated consultation Document is sent to the client.
+10. The response from server contains either an Error object or the updated consultation with a status code of 200.
+
+#### DELETE CONSULTATION
+1. The client submits a DELETE request. This DELETE request contains a JWT in the Header, and JSON as the body containing the consultationId.
+2. The request is validated. In this case, the consultationId must be a string. If it fails validation, an error is thrown to Step 3. Otherwise, proceed to Step 4.
+3. The error is returned by the server containing information about the incorrectly supplied request with a status code of 400 Bad Request.
+4. The JWT is validated. If it fails validation, an error is thrown to Step 5. Otherwise, proceed to Step 6.
+5. The error is returned by the server containing information about the incorrectly supplied request with a status code of 403 Unauthorized.
+6. The consultationId is sent to the database with a delete request. If an error is encountered, it is thrown to Step 8. Otherwise, proceed to step 9.
+7. The consultationId is sent to the database and the consultation Document is deleted.
+8. The error is returned by the server. This error remains vague as to not divulge DB information.
+9. The ID of the deleted consultation is returned.
+10. The response from server contains either an Error object or the deleted consultation ID with a status code of 204.
+
+
 -------------------
 ## Trello Images here later
 -------------------
