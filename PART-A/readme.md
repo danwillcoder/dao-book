@@ -5,7 +5,9 @@ Dao Book is a clinic management software made specifically for Chinese medicine 
 
 <br>
 
+-------------------
 ### **Purpose**
+-------------------
 
 Dao Book exists to: 
 
@@ -15,8 +17,9 @@ Dao Book exists to:
 
 <br>
 
+-------------------
 ### **Functionality & Features**
-
+-------------------
 ***MVP***
 
 The foundation application will allow the practitioner to:
@@ -27,7 +30,10 @@ The foundation application will allow the practitioner to:
 - View all patients relevant to the practitioner
 - View all session notes and prescriptions for all patients relevant to the practitioner
 
-***Further features*** 
+
+#### ***Further features*** 
+
+
 
 To further fulfil the above mentioned purposes, the application will ideally also include the following features:
 
@@ -36,13 +42,17 @@ To further fulfil the above mentioned purposes, the application will ideally als
 
 <br>
 
+------------------- 
 ### **Target Audience**
+-------------------
 
 Chinese medicine practitioners who want a streamlined and simplified patient record software that is specified to their industry, who in addition value their patients being able to access their own prescription data. 
 
 <br>
 
+-------------------
 ### **Tech Stack**
+-------------------
 
 - MongoDB
 - Express.js
@@ -52,32 +62,13 @@ Chinese medicine practitioners who want a streamlined and simplified patient rec
 - TailwindCSS
 - Json Web Tokens
 - Nodemailer
-
 <br>
-
-## Planning Methodology
-
-Trello has been chosen as the platform for keeping track of this project. 
-
-The Trello board will utilise five lists in which to group tasks:
-- Backlog
-- In Dev
-- For Review
-- Dev Done
-- Done
-
-***Trello Flow***
-
-1. Ascertain tasks to be completed, write tasks into the **Backlog** list. These tasks will be developed using user stories, which we then break down into discrete tasks that can be completed.
-2. Task is picked from the **Backlog**, and put into **In Dev** once begun.
-3. Once task is relatively done, transfer task into **For Review**, where task is reviewed by other team member, which may entail further discourse about the task. 
-4. If task needs more work, goes back into **In Dev**. If the *development* aspects of the task are done, but the task still requires other additional work such as documentation etc., the task is moved to **Dev Done**, with an accompanying note indicating what else needs to be done. 
-5. Tasks are only moved to the final **Done** list when all aspects of a task are complete. 
-
 
 <br><br><br>
 
-### Data Flow Diagrams
+-------------------
+## Data Flow Diagrams
+-------------------
 
 #### REGISTER
 
@@ -180,7 +171,7 @@ The Trello board will utilise five lists in which to group tasks:
 9. All consultation Documents related to the patientId are sent to the client.
 10. The response from server contains either an Error object or the consultation list with a status code of 200.
 
-####UPDATE CONSULTATION
+#### UPDATE CONSULTATION
 
 1. The client submits a PUT request. This PUT request contains a JWT in the Header, and JSON as the body containing the consultationId and the new consultation info.
 2. The request is validated. In this case, the consultationId must be a string. The fields must be strings. If it fails validation, an error is thrown to Step 3. Otherwise, proceed to Step 4.
@@ -205,7 +196,54 @@ The Trello board will utilise five lists in which to group tasks:
 9. The ID of the deleted consultation is returned.
 10. The response from server contains either an Error object or the deleted consultation ID with a status code of 204.
 
+<br>
+<br>
+<br>
 
 -------------------
+## User Stories
+-------------------
+
+- As a doctor, I want to create an account, so I can use the software.
+- As a doctor, I want to log into my account, so I can keep my patient's information private.
+- As a doctor, I want to create new patients so I can record their information.
+- As a doctor, I want to record a consultation so I have a reference to everything we discussed.
+- As a doctor, I want to see all my patients in one spot, so I can see our previous consultations.
+- As a doctor, I want to see my patient's previous consultations in detail, so I can see what I previously prescribed them and what we discussed.
+- As a doctor, I want to be able to update a consultation, so I can record further details if I've overlooked them in the session.
+- As a doctor, I want to be able to delete consultations, so I can correct the record or remove accidents.
+
+<br>
+
+- As a patient, I want to be able to log into the site, so only I and my doctor can see the results of my consultations.
+- As a patient, I want to be able to view previous consultations so I don't have to remember what we discussed.
+
+
+
+-------------------
+## Planning Methodology
+-------------------
+
+Trello has been chosen as the platform for keeping track of this project. 
+
+The Trello board will utilise five lists in which to group tasks:
+- Backlog
+- In Dev
+- For Review
+- Dev Done
+- Done
+
+***Trello Flow***
+
+1. Ascertain tasks to be completed, write tasks into the **Backlog** list. These tasks will be developed using user stories, which we then break down into discrete tasks that can be completed.
+2. Task is picked from the **Backlog**, and put into **In Dev** once begun.
+3. Once task is relatively done, transfer task into **For Review**, where task is reviewed by other team member, which may entail further discourse about the task. 
+4. If task needs more work, goes back into **In Dev**. If the *development* aspects of the task are done, but the task still requires other additional work such as documentation etc., the task is moved to **Dev Done**, with an accompanying note indicating what else needs to be done. 
+5. Tasks are only moved to the final **Done** list when all aspects of a task are complete. 
+
+
+<br>
+
+
 ## Trello Images here later
 -------------------
