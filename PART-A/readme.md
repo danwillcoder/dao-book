@@ -1,4 +1,5 @@
 # Dao Book
+
 ## Clinic Management Software
 
 Dao Book is a clinic management software made specifically for Chinese medicine practitioners. In its earliest version, it will provide support for herbalists, and in later versions it may integrate functionality for acupuncture and other branches of Chinese medicine. 
@@ -67,7 +68,7 @@ Chinese medicine practitioners who want a streamlined and simplified patient rec
 <br><br><br>
 
 -------------------
-## Data Flow Diagrams
+### **Data Flow Diagrams**
 -------------------
 
 #### REGISTER
@@ -201,7 +202,7 @@ Chinese medicine practitioners who want a streamlined and simplified patient rec
 <br>
 
 -------------------
-## User Stories
+### **User Stories**
 -------------------
 
 - As a doctor, I want to create an account, so I can use the software.
@@ -221,7 +222,7 @@ Chinese medicine practitioners who want a streamlined and simplified patient rec
 
 
 -------------------
-## Planning Methodology
+### **Planning Methodology**
 -------------------
 
 Trello has been chosen as the platform for keeping track of this project. 
