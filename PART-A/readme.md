@@ -202,6 +202,18 @@ Chinese medicine practitioners who want a streamlined and simplified patient rec
 <br>
 
 -------------------
+### **Application Architecture Diagram**
+-------------------
+<br>
+
+![Image of App Architecture](./docs/Dao_Book_app_arch.jpg)
+
+
+<br>
+<br>
+<br>
+
+-------------------
 ### **User Stories**
 -------------------
 
