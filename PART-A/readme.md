@@ -240,7 +240,147 @@ Chinese medicine practitioners who want a streamlined and simplified patient rec
 - As a patient, I want to be able to log into the site, so only I and my doctor can see the results of my consultations.
 - As a patient, I want to be able to view previous consultations so I don't have to remember what we discussed.
 
-_After our initial conversations, and in the course of planning, we refined these user stories to also include acceptance criteria._
+_After our initial conversations, and in the course of planning, we refined these user stories to also include acceptance criteria. These acceptance criteria use the Agile "Given-When-Then" format. A scenario is given, and then a series of steps described._
+
+### **Revised User Stories**
+
+#### Doctor: I want to create my account, so I can use the software
+
+**Scenario: Account Creation**
+Given I am a new user
+When I visit the application
+Then I'm shown a form asking me to login or register
+And I click the register button
+Then I'm shown a form collecting my registration details
+When I enter my email in the form of an email
+When I enter my password
+And my password is more than 6 characters long, and contains both alphanumeric characters and a symbol
+When I enter my full name
+Given the form is filled out correctly
+When I click submit
+Then my account is created and an email sent
+
+#### Doctor: I want to log into my account, so I can keep my patient's information private
+
+**Scenario: Account Login**
+Given I am existing user of the app
+When I visit the application
+Then I'm shown a form asking me to login or register
+When I click the login button
+Then I'm taken to the login form
+When I enter my email
+And I enter my password
+Then I click login
+Then I'm logged into my account
+And the login persists for multiple sessions
+
+#### Doctor: I want to create new patients so I can record their information.
+
+**Scenario: Patient Creation**
+Given I am logged in at the dashboard
+When I click the first session button
+Then I'm taken to the new patient form
+When I fill in the patient's name, email, date of birth
+And any pre-existing medical history
+When I click submit
+Given all the patient info is valid
+Then a new patient is created
+And I'm taken to the consultation form
+
+#### Doctor: I want to record a consultation so I have a reference to everything we discussed.
+
+**Scenario: Consultation Creation**
+Given I am logged in at the dashboard
+When I click the new consultation button
+Or I have just entered a new patient
+Then I see the consultation form
+When I select the patient
+Then I am allowed to enter consultation information
+When I fill in the date, consultation notes, medicinal updates, and any other considerations, and click save
+Then the consultation is saved
+And I'm taken back to the patient menu
+
+#### Doctor: I want to see all my patients in one spot, so I can see our previous consultations.
+
+**Scenario: Patient Menu**
+Given I am on the dashboard
+When I click the Patients button
+Then I see a list of my previous patients
+Given the list of all my patients
+When I click on one of them
+Then I see their details and a list of previous consultations
+
+#### Doctor: I want to see my patient's previous consultations in detail, so I can see what I previously prescribed them and what we discussed.
+
+**Scenario: Consultation Details**
+Given I am on the dashboard
+When I click on the Patients button
+Then I see a list of my previous patients
+Given the list of all my patients
+When I click on one
+Then I see their details and a list of previous consultations
+Given the list of previous consultations
+When I click on one of them
+I can see the details of the consultation including notes, prescriptions, date and other considerations
+
+#### Doctor: I want to be able to update a consultation, so I can record further details if I've overlooked them in the session.
+
+**Scenario: Consultation Editing**
+Given I am on the dashboard
+When I click on the Patients button
+Then I see a list of my previous patients
+Given the list of all my patients
+When I click on one
+Then I see their details and a list of previous consultations
+Given the list of previous consultations
+When I click on one of them
+I can see the details of the consultation including notes, prescriptions, date and other considerations
+Given the consultation details screen
+When I click the edit button
+Then I can change any of the information in the fields to whatever I want
+When I click save
+Then the consultation is updated
+
+#### Doctor: I want to be able to update a consultation, so I can record further details if I've overlooked them in the session.
+
+**Scenario: Consultation Deletion**
+Given I am on the dashboard
+When I click on the Patients button
+Then I see a list of my previous patients
+Given the list of all my patients
+When I click on one
+Then I see their details and a list of previous consultations
+Given the list of previous consultations
+When I click on one of them
+I can see the details of the consultation including notes, prescriptions, date and other considerations
+Given the consultation details screen
+When I click the delete button
+Then I'm asked to confirm the deletion
+And I confirm the deletion
+Then the consultation is deleted
+
+#### Patient: I want to be able to log into the site, so only I and my doctor can see the results of my consultations.
+
+**Scenario: Patient Login\***
+Given I am a patient
+When I click on the Patient log in
+Then I see the patient login form
+When I enter my date of birth, last name, and email and click login
+Given all the information is correct
+Then I am logged in
+
+#### Patient: I want to be able to view previous consultations so I don't have to remember what we discussed.
+
+**Scenario: Patient Login\***
+Given I am a patient
+When I click on the Patient log in
+Then I see the patient login form
+When I enter my date of birth, last name, and email and click login
+Given all the information is correct
+Then I am logged in
+And I see my personal information and my previous consultations
+When I click a previous consultation
+Then I see the details of the consult
 
 ---
 
