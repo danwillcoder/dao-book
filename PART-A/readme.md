@@ -2,26 +2,31 @@
 
 ## Clinic Management Software
 
-Dao Book is a clinic management software made specifically for Chinese medicine practitioners. In its earliest version, it will provide support for herbalists, and in later versions it may integrate functionality for acupuncture and other branches of Chinese medicine. 
+Dao Book is a clinic management software made specifically for Chinese medicine practitioners. In its earliest version, it will provide support for herbalists, and in later versions it may integrate functionality for acupuncture and other branches of Chinese medicine.
 
 <br>
 
--------------------
-### **Purpose**
--------------------
+---
 
-Dao Book exists to: 
+### **Purpose**
+
+---
+
+Dao Book exists to:
 
 - streamline the consultation process for practitioners
 - provide a long-term and affordable solution to storing patient notes and prescription histories
-- provide the ability for patients to access their own prescription history 
+- provide the ability for patients to access their own prescription history
 
 <br>
 
--------------------
+---
+
 ### **Functionality & Features**
--------------------
-***MVP***
+
+---
+
+**_MVP_**
 
 The foundation application will allow the practitioner to:
 
@@ -31,29 +36,30 @@ The foundation application will allow the practitioner to:
 - View all patients relevant to the practitioner
 - View all session notes and prescriptions for all patients relevant to the practitioner
 
-
-#### ***Further features*** 
-
-
+#### **_Further features_**
 
 To further fulfil the above mentioned purposes, the application will ideally also include the following features:
 
-- Within each session record, the practitioner can select to have an automated email sent to the patient that will include: the presciption, dosage and administration, other lifestyle recommendations. 
+- Within each session record, the practitioner can select to have an automated email sent to the patient that will include: the presciption, dosage and administration, other lifestyle recommendations.
 - Patients will be able to access their own prescription history through logging into the platform.
 
 <br>
 
-------------------- 
-### **Target Audience**
--------------------
+---
 
-Chinese medicine practitioners who want a streamlined and simplified patient record software that is specified to their industry, who in addition value their patients being able to access their own prescription data. 
+### **Target Audience**
+
+---
+
+Chinese medicine practitioners who want a streamlined and simplified patient record software that is specified to their industry, who in addition value their patients being able to access their own prescription data.
 
 <br>
 
--------------------
+---
+
 ### **Tech Stack**
--------------------
+
+---
 
 - MongoDB
 - Express.js
@@ -63,13 +69,14 @@ Chinese medicine practitioners who want a streamlined and simplified patient rec
 - TailwindCSS
 - Json Web Tokens
 - Nodemailer
+
 <br>
 
-<br><br><br>
+---
 
--------------------
 ### **Data Flow Diagrams**
--------------------
+
+---
 
 #### REGISTER
 
@@ -90,7 +97,7 @@ Chinese medicine practitioners who want a streamlined and simplified patient rec
 3. The error is returned by the server containing information about the incorrectly supplied request.
 4. The database is queried for the user. If the user does not exist, an error is thrown to Step 6. If the user's password hash does not match the password hash in the database, an error is thrown to Step 6. Otherwise, proceed to step 7.
 5. We retrieve the entire User document from the database before validating the password.
-6. The error returned by the server does not contain information about whether the account exists or not, as this may be used maliciously for enumeration. 
+6. The error returned by the server does not contain information about whether the account exists or not, as this may be used maliciously for enumeration.
 7. A JWT is issued and returned to the client.
 8. The JWT complies to the OAuth spec, containing an access_token & token_type in JSON format.
 9. The response from server contains either an Error object or a valid JWT. The client then redirects the successfully logged-in user.
@@ -113,7 +120,7 @@ Chinese medicine practitioners who want a streamlined and simplified patient rec
 2. The request content is validated, ensuring all required fields are populated and of the correct datatype. If this is not the case, an error is thrown to Step 3. Otherwise, proceed to Step 4.
 3. The error is returned by the server containing information about the incorrectly supplied request.
 4. The email is used to make a database call to determine if the patient user exists. If the user does not exist, an error is thrown to Step 6. Otherwise, proceed to Step 7.
-5. The patient document is retrieved. 
+5. The patient document is retrieved.
 6. The error is returned by the server. This error remains vague as to not divulge DB information.
 7. The fields in the patientInfo object are compared to the patient Document. If it matches, a valid JWT is returned. If invalid, an Error is thrown to Step 6.
 8. If the client receives a successful JWT, the user is redirected to the application. Otherwise, an error is displayed.
@@ -125,7 +132,7 @@ Chinese medicine practitioners who want a streamlined and simplified patient rec
 3. The error is returned by the server containing information about the incorrectly supplied request with a status code of 403 Unauthorized.
 4. Using the practitionerId inside the JWT, we make a DB request for all the patients associated with the ID. If unsuccessful, an error is thrown to Step 5. Otherwise, proceed to Step 6.
 5. The error is returned by the server. This error remains vague as to not divulge DB information.
-6. The practitionerId is used to get all patient Documents from the server. 
+6. The practitionerId is used to get all patient Documents from the server.
 7. The list of patients is sent in a JSON format to the client.
 8. The response from the server contains either an Error object or the patient list.
 
@@ -183,6 +190,7 @@ Chinese medicine practitioners who want a streamlined and simplified patient rec
 10. The response from server contains either an Error object or the updated consultation with a status code of 200.
 
 #### DELETE CONSULTATION
+
 1. The client submits a DELETE request. This DELETE request contains a JWT in the Header, and JSON as the body containing the consultationId.
 2. The request is validated. In this case, the consultationId must be a string. If it fails validation, an error is thrown to Step 3. Otherwise, proceed to Step 4.
 3. The error is returned by the server containing information about the incorrectly supplied request with a status code of 400 Bad Request.
@@ -198,21 +206,25 @@ Chinese medicine practitioners who want a streamlined and simplified patient rec
 <br>
 <br>
 
--------------------
+---
+
 ### **Application Architecture Diagram**
--------------------
+
+---
+
 <br>
 
 ![Image of App Architecture](./docs/Dao_Book_app_arch.jpg)
 
-
 <br>
 <br>
 <br>
 
--------------------
-### **User Stories**
--------------------
+---
+
+### **Initial User Stories**
+
+---
 
 - As a doctor, I want to create an account, so I can use the software.
 - As a doctor, I want to log into my account, so I can keep my patient's information private.
@@ -228,32 +240,34 @@ Chinese medicine practitioners who want a streamlined and simplified patient rec
 - As a patient, I want to be able to log into the site, so only I and my doctor can see the results of my consultations.
 - As a patient, I want to be able to view previous consultations so I don't have to remember what we discussed.
 
+_After our initial conversations, and in the course of planning, we refined these user stories to also include acceptance criteria._
 
+---
 
--------------------
 ### **Planning Methodology**
--------------------
 
-Trello has been chosen as the platform for keeping track of this project. 
+---
+
+Trello has been chosen as the platform for keeping track of this project.
 
 The Trello board will utilise five lists in which to group tasks:
+
 - Backlog
 - In Dev
 - For Review
 - Dev Done
 - Done
 
-***Trello Flow***
+**_Trello Flow_**
 
 1. Ascertain tasks to be completed, write tasks into the **Backlog** list. These tasks will be developed using user stories, which we then break down into discrete tasks that can be completed.
 2. Task is picked from the **Backlog**, and put into **In Dev** once begun.
-3. Once task is relatively done, transfer task into **For Review**, where task is reviewed by other team member, which may entail further discourse about the task. 
-4. If task needs more work, goes back into **In Dev**. If the *development* aspects of the task are done, but the task still requires other additional work such as documentation etc., the task is moved to **Dev Done**, with an accompanying note indicating what else needs to be done. 
-5. Tasks are only moved to the final **Done** list when all aspects of a task are complete. 
-
+3. Once task is relatively done, transfer task into **For Review**, where task is reviewed by other team member, which may entail further discourse about the task.
+4. If task needs more work, goes back into **In Dev**. If the _development_ aspects of the task are done, but the task still requires other additional work such as documentation etc., the task is moved to **Dev Done**, with an accompanying note indicating what else needs to be done.
+5. Tasks are only moved to the final **Done** list when all aspects of a task are complete.
 
 <br>
 
-
 ## Trello Images here later
--------------------
+
+---
