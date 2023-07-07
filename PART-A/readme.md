@@ -80,6 +80,8 @@ Chinese medicine practitioners who want a streamlined and simplified patient rec
 
 #### REGISTER
 
+![Register DFD](./docs/register_doctor.png)
+
 1. The client submits a POST request containing the new practitioner's email and password. This POST request comes from an HTML form.
 2. The request content is validated, ensuring all required fields are populated and of the correct datatype. In this case, the email and password must be a string, in the form of an email, and the password must pass minimal security requirements. If this is not the case, an error is thrown to Step 3. Otherwise, proceed to Step 4.
 3. The error is returned by the server containing information about the incorrectly supplied request.
@@ -91,6 +93,8 @@ Chinese medicine practitioners who want a streamlined and simplified patient rec
 9. The response from server contains either an Error object or a valid JWT. The client then redirects the successfully logged-in user.
 
 #### LOGIN
+
+![Login DFD](./docs/login_doctor.png)
 
 1. The client submits a POST request containing the practitioner's email and password. This POST request comes from an HTML form.
 2. The request content is validated, ensuring all required fields are populated and of the correct datatype. In this case, the email and password must be a string, in the form of an email, and the password must pass minimal security requirements. If this is not the case, an error is thrown to Step 3. Otherwise, proceed to Step 4.
@@ -104,6 +108,8 @@ Chinese medicine practitioners who want a streamlined and simplified patient rec
 
 #### CREATE PATIENT
 
+![Create Patient DFD](./docs/patient_create.png)
+
 1. The client submits a POST request containing the new information related to the patient. This includes their full name, email, and date of birth. This POST request comes from an HTML form.
 2. The request content is validated, ensuring all required fields are populated and of the correct datatype. This may be a string for the name and email or a valid string that becomes a JS Date object. The request must contain a valid JWT, as only practitioners are able to register patients. If this is not the case, an error is thrown to Step 3. Otherwise, proceed to Step 4.
 3. The error is returned by the server containing information about the incorrectly supplied request.
@@ -116,6 +122,8 @@ Chinese medicine practitioners who want a streamlined and simplified patient rec
 
 #### LOGIN (Patient)
 
+![Login Patient DFD](./docs/login_patient.png)
+
 1. The client submits a POST request containing the patient's email, last name, and DOB (this object is called patientLogin). This POST request comes from an HTML form.
 2. The request content is validated, ensuring all required fields are populated and of the correct datatype. If this is not the case, an error is thrown to Step 3. Otherwise, proceed to Step 4.
 3. The error is returned by the server containing information about the incorrectly supplied request.
@@ -127,6 +135,8 @@ Chinese medicine practitioners who want a streamlined and simplified patient rec
 
 #### GET PATIENT LIST
 
+![Get Patient DFD](./docs/patient_get.png)
+
 1. The client submits a GET request. This GET request comes with a JWT token in the Header.
 2. The JWT is validated. If it fails validation, an error is thrown to Step 3. Otherwise, proceed to Step 4.
 3. The error is returned by the server containing information about the incorrectly supplied request with a status code of 403 Unauthorized.
@@ -137,6 +147,8 @@ Chinese medicine practitioners who want a streamlined and simplified patient rec
 8. The response from the server contains either an Error object or the patient list.
 
 #### UPDATE PATIENT INFO
+
+![Update Patient DFD](./docs/patient_update.png)
 
 1. The client submits a PUT request. This PUT request contains a JWT in the Header, and JSON as the body containing the patientId, and the new patient information.
 2. The request is validated. In this case, the patientId must be a string. The fields must be strings. If it fails validation, an error is thrown to Step 3. Otherwise, proceed to Step 4.
@@ -150,6 +162,8 @@ Chinese medicine practitioners who want a streamlined and simplified patient rec
 10. The response from the server contains either an Error object or the new patient Document.
 
 #### CREATE CONSULTATION
+
+![Create Consultation DFD](./docs/consultation_create.png)
 
 1. The client submits a POST request containing the new consultation information. This POST request comes from an HTML form.
 2. The request content is validated, ensuring all required fields are populated and of the correct datatype. In this case, the consultation fields must be strings, or a date. If this is not the case, an error is thrown to Step 3. Otherwise, proceed to Step 4.
@@ -165,6 +179,8 @@ Chinese medicine practitioners who want a streamlined and simplified patient rec
 
 #### GET CONSULTATIONS
 
+![Get Consultation DFD](./docs/consultations_get.png)
+
 1. The client submits a POST request. This POST request contains a JWT in the Header and JSON as the body containing the patientId.
 2. The request is validated. In this case, the patientId must be a string. If it fails validation, an error is thrown to Step 3. Otherwise, proceed to Step 4.
 3. The error is returned by the server containing information about the incorrectly supplied request with a status code of 403 Unauthorized.
@@ -178,6 +194,8 @@ Chinese medicine practitioners who want a streamlined and simplified patient rec
 
 #### UPDATE CONSULTATION
 
+![Update Consultation DFD](./docs/consultation_update.png)
+
 1. The client submits a PUT request. This PUT request contains a JWT in the Header, and JSON as the body containing the consultationId and the new consultation info.
 2. The request is validated. In this case, the consultationId must be a string. The fields must be strings. If it fails validation, an error is thrown to Step 3. Otherwise, proceed to Step 4.
 3. The error is returned by the server containing information about the incorrectly supplied request with a status code of 400 Bad Request.
@@ -190,6 +208,8 @@ Chinese medicine practitioners who want a streamlined and simplified patient rec
 10. The response from server contains either an Error object or the updated consultation with a status code of 200.
 
 #### DELETE CONSULTATION
+
+![Delete Consultation DFD](./docs/consultation_delete.png)
 
 1. The client submits a DELETE request. This DELETE request contains a JWT in the Header, and JSON as the body containing the consultationId.
 2. The request is validated. In this case, the consultationId must be a string. If it fails validation, an error is thrown to Step 3. Otherwise, proceed to Step 4.
@@ -247,139 +267,237 @@ _After our initial conversations, and in the course of planning, we refined thes
 #### Doctor: I want to create my account, so I can use the software
 
 **Scenario: Account Creation**
+
 Given I am a new user
+
 When I visit the application
+
 Then I'm shown a form asking me to login or register
+
 And I click the register button
+
 Then I'm shown a form collecting my registration details
+
 When I enter my email in the form of an email
+
 When I enter my password
+
 And my password is more than 6 characters long, and contains both alphanumeric characters and a symbol
+
 When I enter my full name
+
 Given the form is filled out correctly
+
 When I click submit
+
 Then my account is created and an email sent
 
 #### Doctor: I want to log into my account, so I can keep my patient's information private
 
 **Scenario: Account Login**
+
 Given I am existing user of the app
+
 When I visit the application
+
 Then I'm shown a form asking me to login or register
+
 When I click the login button
+
 Then I'm taken to the login form
+
 When I enter my email
+
 And I enter my password
+
 Then I click login
+
 Then I'm logged into my account
+
 And the login persists for multiple sessions
 
 #### Doctor: I want to create new patients so I can record their information.
 
 **Scenario: Patient Creation**
+
 Given I am logged in at the dashboard
+
 When I click the first session button
+
 Then I'm taken to the new patient form
+
 When I fill in the patient's name, email, date of birth
+
 And any pre-existing medical history
+
 When I click submit
+
 Given all the patient info is valid
+
 Then a new patient is created
+
 And I'm taken to the consultation form
 
 #### Doctor: I want to record a consultation so I have a reference to everything we discussed.
 
 **Scenario: Consultation Creation**
+
 Given I am logged in at the dashboard
+
 When I click the new consultation button
+
 Or I have just entered a new patient
+
 Then I see the consultation form
+
 When I select the patient
+
 Then I am allowed to enter consultation information
+
 When I fill in the date, consultation notes, medicinal updates, and any other considerations, and click save
+
 Then the consultation is saved
+
 And I'm taken back to the patient menu
 
 #### Doctor: I want to see all my patients in one spot, so I can see our previous consultations.
 
 **Scenario: Patient Menu**
+
 Given I am on the dashboard
+
 When I click the Patients button
+
 Then I see a list of my previous patients
+
 Given the list of all my patients
+
 When I click on one of them
+
 Then I see their details and a list of previous consultations
 
 #### Doctor: I want to see my patient's previous consultations in detail, so I can see what I previously prescribed them and what we discussed.
 
 **Scenario: Consultation Details**
+
 Given I am on the dashboard
+
 When I click on the Patients button
+
 Then I see a list of my previous patients
+
 Given the list of all my patients
+
 When I click on one
+
 Then I see their details and a list of previous consultations
+
 Given the list of previous consultations
+
 When I click on one of them
+
 I can see the details of the consultation including notes, prescriptions, date and other considerations
 
 #### Doctor: I want to be able to update a consultation, so I can record further details if I've overlooked them in the session.
 
 **Scenario: Consultation Editing**
+
 Given I am on the dashboard
+
 When I click on the Patients button
+
 Then I see a list of my previous patients
+
 Given the list of all my patients
+
 When I click on one
+
 Then I see their details and a list of previous consultations
+
 Given the list of previous consultations
+
 When I click on one of them
+
 I can see the details of the consultation including notes, prescriptions, date and other considerations
+
 Given the consultation details screen
+
 When I click the edit button
+
 Then I can change any of the information in the fields to whatever I want
+
 When I click save
+
 Then the consultation is updated
 
 #### Doctor: I want to be able to update a consultation, so I can record further details if I've overlooked them in the session.
 
 **Scenario: Consultation Deletion**
+
 Given I am on the dashboard
+
 When I click on the Patients button
+
 Then I see a list of my previous patients
+
 Given the list of all my patients
+
 When I click on one
+
 Then I see their details and a list of previous consultations
+
 Given the list of previous consultations
+
 When I click on one of them
+
 I can see the details of the consultation including notes, prescriptions, date and other considerations
+
 Given the consultation details screen
+
 When I click the delete button
+
 Then I'm asked to confirm the deletion
+
 And I confirm the deletion
+
 Then the consultation is deleted
 
 #### Patient: I want to be able to log into the site, so only I and my doctor can see the results of my consultations.
 
-**Scenario: Patient Login\***
+**Scenario: Patient Login**
+
 Given I am a patient
+
 When I click on the Patient log in
+
 Then I see the patient login form
+
 When I enter my date of birth, last name, and email and click login
+
 Given all the information is correct
+
 Then I am logged in
 
 #### Patient: I want to be able to view previous consultations so I don't have to remember what we discussed.
 
-**Scenario: Patient Login\***
+**Scenario: Patient Login**
+
 Given I am a patient
+
 When I click on the Patient log in
+
 Then I see the patient login form
+
 When I enter my date of birth, last name, and email and click login
+
 Given all the information is correct
+
 Then I am logged in
+
 And I see my personal information and my previous consultations
+
 When I click a previous consultation
+
 Then I see the details of the consult
 
 ---
