@@ -526,6 +526,51 @@ The Trello board will utilise five lists in which to group tasks:
 
 <br>
 
+---
+
+# Design & Wireframes
+
+## Overall Design Ethos
+
+Our first step to designing DaoBook was to review other competitors in the market, as well as take inspiration from mockups done by designers on sites such as Dribbble or Pinterest. This allowed us to see what was really being used in the market, but also not be constrained or simply do what's been done before.
+
+We found many in the market using a primarily blue and green colour palette, so we made the deliberate choice to distance ourselves with a neutral red that hints at the cultural roots of traditional Chinese medicine while maintaining a professional look. We use slightly-rounded buttons and fields to remain approachable and legible.
+
+The main design consideration we left out was a mobile-first design. Given DaoBook is built primarily for practitioners to use during the course of, or immediately after, a consult, it didn't make sense to constrain our design around a mobile viewport. Clean visuals were preferred because of DaoBook's "tool-like" functionality. 
+
+## Login & Registration
+
+Our login and registration pages use a two-column design with plenty of negative space that guides the user's eye to the sign up (or login) form. If they arrive on the page without a valid JWT in their browser, they need to log in so we can properly authenticate them. If they arrive on the page with a valid JWT, we seamlessly redirect practitioners and patients to their respective dashboards. 
+
+We place all the form fields on the screen at the same time, as the goal is to minimise the friction during on-boarding and get them set up and managing patients & consults as soon as possible.
+
+## Dashboard 
+
+The dashboard is the "home" of the application, at least from a practitioner's point of view, so it was important to make it clear and easy to use, but also inject some personality. A welcome message grants a personal touch, but then the functionality of the app is prioritised. 
+Because initial consults, returning consults, and reviewing patient information are all relatively important actions, we've given them equal weight in the UI with evenly-sized buttons. The natural flow throughout the app is from dashboard to consult screen back to dashboard. 
+
+As we know from our user stories, our users are usually working professionals who want to easily log or retrieve the information they need and then get on with their day. With that in mind, the dashboard design prioritises functionality at all points. 
+
+## Initial Consult Form
+
+The initial consult form is split into two parts - the creation of a new patient profile, and the actual consult information. The layout is a simple padded container which balances negative space and information density.
+
+We've opted for a single scrolling form instead of pagination, designed to facilitate a busy doctor who needs to work on the fly. For ease of scanning, all input fields are full-width within their parent container.
+
+We make the required fields explicit, and these fields are required because they're the bare minimum to uniquely distinguish a patient. Aside from that, they're able to continue on and fill the rest of the information in at another time. 
+
+For the consult, we provide comprehensive fields to cover all necessary requirements of Chinese medicine - complaint, notes, diagnostic information. 
+
+The visual separation between diagnosis and prescription is a way of "designing in" the different steps of medical consultation into the body of the form itself. 
+
+## Returning Consult Form
+
+To create a cohesive visual style, the returning consult form looks almost identical to the returning consult form. The main content change is showing the patient's name for a quick reminder. This form is designed to facilitate fast usage while the doctor is still in the middle of a consult, turning around and speaking or listening for minutes at a time, so each input features a clear label.
+
+## Patient List
+
+The final main screen of the app, the patient listing page showcases all the patients a doctor sees. This page features a simple design to maximise information density and quickly allow them to access the patient detail screen. The patient detail screen doubles as an update form and a display, as editing any of the fields and saving will update the patient. 
+
 ## Trello Images here later
 
 ---
