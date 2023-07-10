@@ -510,7 +510,9 @@ Our first step to designing DaoBook was to review other competitors in the marke
 
 We found many in the market using a primarily blue and green colour palette, so we made the deliberate choice to distance ourselves with a neutral red that hints at the cultural roots of traditional Chinese medicine while maintaining a professional look. We use slightly-rounded buttons and fields to remain approachable and legible.
 
-The main design consideration we left out was a mobile-first design. Given DaoBook is built primarily for practitioners to use during the course of, or immediately after, a consult, it didn't make sense to constrain our design around a mobile viewport. Clean visuals were preferred because of DaoBook's "tool-like" functionality.
+The main design consideration was how to approach mobile. We decided early on that given DaoBook is built primarily for practitioners to use during the course of, or immediately after, a consult, the main focus of the design work should be in the desktop view. Clean visuals were preferred because of DaoBook's "tool-like" functionality. However, a mobile view is both an assessment requirement and also useful for patients who may need access to their prescription information on the go - either at the pharmacist, or at home while preparing remedies.
+
+Thus we developed a limited mobile view for patients only that includes full functionality to log in and view consultation details.
 
 In order to **view the full design**, including all screens, app flow and screen relationships, please visit our Figma design:
 https://www.figma.com/file/XsgXl47NMwzeJp1ajM28yC/App-Design?type=design&node-id=0%3A1&mode=design&t=9J5jtYYa4pO1Y2gW-1
@@ -533,9 +535,10 @@ We place all the form fields on the screen at the same time, as the goal is to m
 
 ![Trello Board](./docs/figma/pracregister.png)
 
-## Dashboard
+## Dashboard: Practitioners
 
 The dashboard is the "home" of the application, at least from a practitioner's point of view, so it was important to make it clear and easy to use, but also inject some personality. A welcome message grants a personal touch, but then the functionality of the app is prioritised.
+
 Because initial consults, returning consults, and reviewing patient information are all relatively important actions, we've given them equal weight in the UI with evenly-sized buttons. The natural flow throughout the app is from dashboard to consult screen back to dashboard.
 
 As we know from our user stories, our users are usually working professionals who want to easily log or retrieve the information they need and then get on with their day. With that in mind, the dashboard design prioritises functionality at all points.
@@ -543,10 +546,6 @@ As we know from our user stories, our users are usually working professionals wh
 ### Practitioner Dashboard
 
 ![Trello Board](./docs/figma/pracdash.png)
-
-### Patient Dashboard
-
-![Trello Board](./docs/figma/patientdash.png)
 
 ## Initial Consult Form
 
@@ -576,9 +575,51 @@ To create a cohesive visual style, the returning consult form looks almost ident
 
 The final main screen of the app, the patient listing page showcases all the patients a doctor sees. This page features a simple design to maximise information density and quickly allow them to access the patient detail screen. The patient detail screen doubles as an update form and a display, as editing any of the fields and saving will update the patient.
 
+Here, the practitioner can also select a previous consultation. This previous consultation opens in the returning consult form, so the practitioner can easily make changes to it.
+
 ### Patient List
 
 ![Trello Board](./docs/figma/patientlist.png)
+
+## Dashboard: Patients
+
+The patient dashboard is simple due to the reduced functionality needed. It simply shows the consults a patient has had, each of which leads through to a consult detail view. This consult detail view repurposes the returning consult view, but without edit access enabled.
+
+### Patient Dashboard
+
+![Trello Board](./docs/figma/patientdash.png)
+
+## Mobile View: Home
+
+On mobile, the experience is quite different. The application only allows patient login, not practitioners, so the home screen is a simple message notifying you of that fact, plus a button. While this does add one additional click (instead of simply redirecting mobile viewers straight to the login form), we thought it necessary to deliberately notify that this view is limited, so practitioners don't attempt to log in here. As an added bonus, this is easier to develop as it saves us implementing device-specific redirects.
+
+### Mobile View: Home
+
+![Trello Board](./docs/figma/home_mobile.png)
+
+## Mobile View: Patient Login
+
+The patient login features smaller input fields for the reduced screen size, and text size also gets shifted down a few points.
+
+### Mobile View: Patient Login
+
+![Trello Board](./docs/figma/patientlogin_mobile.png)
+
+## Mobile View: Patient Dashboard
+
+The patient dashboard at mobile features smaller buttons for consults, and heavily uses negative space to ensure we don't get any accidental clicks.
+
+### Mobile View: Patient Dashboard
+
+![Trello Board](./docs/figma/patientdash_mobile.png)
+
+## Mobile View: Consult View
+
+Again, the consult view is similar to the desktop view, with smaller text to accomodate for a smaller viewport. The form scrolls to enable more information to be displayed, rather than paginating — we thought this was a better approach if the user needs to move up and down to read different notes (ie. look at their lifestyle notes, then review their prescriptions again).
+
+### Mobile View: Consult View
+
+![Trello Board](./docs/figma/patientconsultations_mobile.png)
 
 <br>
 
