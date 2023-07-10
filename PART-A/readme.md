@@ -502,11 +502,87 @@ Then I see the details of the consult
 
 ---
 
-### **Planning Methodology**
 
----
 
-Trello has been chosen as the platform for keeping track of this project.
+# Design & Wireframes
+
+## Overall Design Ethos
+
+Our first step to designing DaoBook was to review other competitors in the market, as well as take inspiration from mockups done by designers on sites such as Dribbble or Pinterest. This allowed us to see what was really being used in the market, but also not be constrained or simply do what's been done before.
+
+We found many in the market using a primarily blue and green colour palette, so we made the deliberate choice to distance ourselves with a neutral red that hints at the cultural roots of traditional Chinese medicine while maintaining a professional look. We use slightly-rounded buttons and fields to remain approachable and legible.
+
+The main design consideration we left out was a mobile-first design. Given DaoBook is built primarily for practitioners to use during the course of, or immediately after, a consult, it didn't make sense to constrain our design around a mobile viewport. Clean visuals were preferred because of DaoBook's "tool-like" functionality. 
+
+In order to **view the full design**, including all screens, app flow and screen relationships, please visit our Figma design:
+https://www.figma.com/file/XsgXl47NMwzeJp1ajM28yC/App-Design?type=design&node-id=0%3A1&mode=design&t=9J5jtYYa4pO1Y2gW-1
+
+## Login & Registration
+
+Our login and registration pages use a two-column design with plenty of negative space that guides the user's eye to the sign up (or login) form. If they arrive on the page without a valid JWT in their browser, they need to log in so we can properly authenticate them. If they arrive on the page with a valid JWT, we seamlessly redirect practitioners and patients to their respective dashboards. 
+
+We place all the form fields on the screen at the same time, as the goal is to minimise the friction during on-boarding and get them set up and managing patients & consults as soon as possible.
+
+### Practitioner Login
+![Trello Board](./docs/figma/praclogin.png)
+
+### Patient Login
+![Trello Board](./docs/figma/patientlogin.png)
+
+### Practitioner Registration
+![Trello Board](./docs/figma/pracregister.png)
+
+## Dashboard 
+
+The dashboard is the "home" of the application, at least from a practitioner's point of view, so it was important to make it clear and easy to use, but also inject some personality. A welcome message grants a personal touch, but then the functionality of the app is prioritised. 
+Because initial consults, returning consults, and reviewing patient information are all relatively important actions, we've given them equal weight in the UI with evenly-sized buttons. The natural flow throughout the app is from dashboard to consult screen back to dashboard. 
+
+As we know from our user stories, our users are usually working professionals who want to easily log or retrieve the information they need and then get on with their day. With that in mind, the dashboard design prioritises functionality at all points. 
+
+### Practitioner Dashboard
+![Trello Board](./docs/figma/pracdash.png)
+
+### Patient Dashboard
+![Trello Board](./docs/figma/patientdash.png)
+
+## Initial Consult Form
+
+The initial consult form is split into two parts - the creation of a new patient profile, and the actual consult information. The layout is a simple padded container which balances negative space and information density.
+
+We've opted for a single scrolling form instead of pagination, designed to facilitate a busy doctor who needs to work on the fly. For ease of scanning, all input fields are full-width within their parent container.
+
+We make the required fields explicit, and these fields are required because they're the bare minimum to uniquely distinguish a patient. Aside from that, they're able to continue on and fill the rest of the information in at another time. 
+
+For the consult, we provide comprehensive fields to cover all necessary requirements of Chinese medicine - complaint, notes, diagnostic information. 
+
+The visual separation between diagnosis and prescription is a way of "designing in" the different steps of medical consultation into the body of the form itself. 
+
+### Initial Consult Form
+![Trello Board](./docs/figma/initialform.png)
+
+## Returning Consult Form
+
+To create a cohesive visual style, the returning consult form looks almost identical to the returning consult form. The main content change is showing the patient's name for a quick reminder. This form is designed to facilitate fast usage while the doctor is still in the middle of a consult, turning around and speaking or listening for minutes at a time, so each input features a clear label.
+
+### Returning Consult Form
+![Trello Board](./docs/figma/returnform.png)
+
+## Patient List
+
+The final main screen of the app, the patient listing page showcases all the patients a doctor sees. This page features a simple design to maximise information density and quickly allow them to access the patient detail screen. The patient detail screen doubles as an update form and a display, as editing any of the fields and saving will update the patient. 
+
+### Patient List
+![Trello Board](./docs/figma/patientlist.png)
+
+<br>
+
+
+# **Planning Methodology**
+
+
+Trello has been chosen as the platform for keeping track of this project. 
+
+Please view the Trello Board here: https://trello.com/invite/b/HAlpMzCI/ATTIc4c42df8a9bb870957eee0e240c637c30071AED8/final-project
 
 The Trello board will utilise five lists in which to group tasks:
 
@@ -526,51 +602,25 @@ The Trello board will utilise five lists in which to group tasks:
 
 <br>
 
----
-
-# Design & Wireframes
-
-## Overall Design Ethos
-
-Our first step to designing DaoBook was to review other competitors in the market, as well as take inspiration from mockups done by designers on sites such as Dribbble or Pinterest. This allowed us to see what was really being used in the market, but also not be constrained or simply do what's been done before.
-
-We found many in the market using a primarily blue and green colour palette, so we made the deliberate choice to distance ourselves with a neutral red that hints at the cultural roots of traditional Chinese medicine while maintaining a professional look. We use slightly-rounded buttons and fields to remain approachable and legible.
-
-The main design consideration we left out was a mobile-first design. Given DaoBook is built primarily for practitioners to use during the course of, or immediately after, a consult, it didn't make sense to constrain our design around a mobile viewport. Clean visuals were preferred because of DaoBook's "tool-like" functionality. 
-
-## Login & Registration
-
-Our login and registration pages use a two-column design with plenty of negative space that guides the user's eye to the sign up (or login) form. If they arrive on the page without a valid JWT in their browser, they need to log in so we can properly authenticate them. If they arrive on the page with a valid JWT, we seamlessly redirect practitioners and patients to their respective dashboards. 
-
-We place all the form fields on the screen at the same time, as the goal is to minimise the friction during on-boarding and get them set up and managing patients & consults as soon as possible.
-
-## Dashboard 
-
-The dashboard is the "home" of the application, at least from a practitioner's point of view, so it was important to make it clear and easy to use, but also inject some personality. A welcome message grants a personal touch, but then the functionality of the app is prioritised. 
-Because initial consults, returning consults, and reviewing patient information are all relatively important actions, we've given them equal weight in the UI with evenly-sized buttons. The natural flow throughout the app is from dashboard to consult screen back to dashboard. 
-
-As we know from our user stories, our users are usually working professionals who want to easily log or retrieve the information they need and then get on with their day. With that in mind, the dashboard design prioritises functionality at all points. 
-
-## Initial Consult Form
-
-The initial consult form is split into two parts - the creation of a new patient profile, and the actual consult information. The layout is a simple padded container which balances negative space and information density.
-
-We've opted for a single scrolling form instead of pagination, designed to facilitate a busy doctor who needs to work on the fly. For ease of scanning, all input fields are full-width within their parent container.
-
-We make the required fields explicit, and these fields are required because they're the bare minimum to uniquely distinguish a patient. Aside from that, they're able to continue on and fill the rest of the information in at another time. 
-
-For the consult, we provide comprehensive fields to cover all necessary requirements of Chinese medicine - complaint, notes, diagnostic information. 
-
-The visual separation between diagnosis and prescription is a way of "designing in" the different steps of medical consultation into the body of the form itself. 
-
-## Returning Consult Form
-
-To create a cohesive visual style, the returning consult form looks almost identical to the returning consult form. The main content change is showing the patient's name for a quick reminder. This form is designed to facilitate fast usage while the doctor is still in the middle of a consult, turning around and speaking or listening for minutes at a time, so each input features a clear label.
-
-## Patient List
-
-The final main screen of the app, the patient listing page showcases all the patients a doctor sees. This page features a simple design to maximise information density and quickly allow them to access the patient detail screen. The patient detail screen doubles as an update form and a display, as editing any of the fields and saving will update the patient. 
-
-## Trello Images here later
-
+## Trello Journey
+#### Initial Trello Board, Backlog was populated with tasks.
+![Trello Board](./docs/trello/willdantrello1.png)
+#### First part to be worked on was R1, which was hence moved from Backlog into In Dev.
+![Trello Board](./docs/trello/willdantrello2.png)
+#### R1 was then moved into For Review, where it was reviewed by the other team member.
+![Trello Board](./docs/trello/willdantrello3.png)
+#### The User Stories R4, and R6 tasks were commenced, and moved into In Dev. 
+![Trello Board](./docs/trello/willdantrello4.png)
+#### Within each task, the subtasks were listed, and ticked off as they were completed.
+![Trello Board](./docs/trello/willdantrello5.png)
+#### R1 was deemed Done, and moved into Done. Dataflow diagrams, architecture diagrams, and Trello screenshots tasks were at this point In Dev. 
+![Trello Board](./docs/trello/willdantrello6.png)
+#### Within a meeting, the team discussed some changes to the Dataflow diagrams. The main points of the discussion were recorded in the task's activity log to ensure that the changes would be followed through. 
+![Trello Board](./docs/trello/willdantrello7.png)
+#### The Dataflow diagrams were then moved into For Review, where they were reviewed by the other team member. User stories were moved into Dev Done, as the first iteration was completed, but still required further work.
+![Trello Board](./docs/trello/willdantrello8.png)
+#### The App architecture diagram was moved into Done, as it was completed (and had already been reviewed). The Wire frames were moved into In Dev, as they were the next task to be worked on.
+![Trello Board](./docs/trello/willdantrello9.png)
+#### The Wire frames were moved into For Review, where they were reviewed by the other team member. The User Stories and DataFlow diagrams were moved into Done, as they were completed. A new task 'annotate wireframes' was created, and moved into In Dev.
+![Trello Board](./docs/trello/willdantrello10.png)
 ---
