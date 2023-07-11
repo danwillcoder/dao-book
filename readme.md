@@ -242,6 +242,22 @@ Chinese medicine practitioners who want a streamlined and simplified patient rec
 
 ---
 
+### **User Personas**
+
+---
+
+To make it easier to develop our user stories, we built some personas to represent both doctors and patients who would be using the application. This informed our approach to the wireframes, as well as the overall flow of the app and our focus on simplicity.
+
+#### Doctor Persona
+
+![User Persona - Doctor](./docs/daobook-persona-doctor.jpg)
+
+#### Patient Persona
+
+![User Persona - Patient](./docs/daobook-persona-patient.jpg)
+
+---
+
 ### **Initial User Stories**
 
 ---
@@ -510,7 +526,9 @@ Our first step to designing DaoBook was to review other competitors in the marke
 
 We found many in the market using a primarily blue and green colour palette, so we made the deliberate choice to distance ourselves with a neutral red that hints at the cultural roots of traditional Chinese medicine while maintaining a professional look. We use slightly-rounded buttons and fields to remain approachable and legible.
 
-The main design consideration was how to approach mobile. We decided early on that given DaoBook is built primarily for practitioners to use during the course of, or immediately after, a consult, the main focus of the design work should be in the desktop view. Clean visuals were preferred because of DaoBook's "tool-like" functionality. However, a mobile view is both an assessment requirement and also useful for patients who may need access to their prescription information on the go - either at the pharmacist, or at home while preparing remedies.
+The main design consideration was how to approach mobile. We decided early on that given DaoBook is built primarily for practitioners to use during the course of, or immediately after, a consult, the main focus of the design work should be in the desktop view. Clean visuals were preferred because of DaoBook's "tool-like" functionality. 
+
+However, a mobile view is both an assessment requirement and also useful for patients who may need access to their prescription information on the go - either at the pharmacist, or at home while preparing remedies.
 
 Thus we developed a limited mobile view for patients only that includes full functionality to log in and view consultation details.
 
