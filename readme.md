@@ -705,4 +705,13 @@ The Trello board will utilise five lists in which to group tasks:
 
 #### The Wire frames were moved into For Review, where they were reviewed by the other team member. The User Stories and DataFlow diagrams were moved into Done, as they were completed. A new task 'annotate wireframes' was created, and moved into In Dev.
 
-## ![Trello Board](./docs/trello/willdantrello10.png)
+![Trello Board](./docs/trello/willdantrello10.png)
+
+#### Video presentation was added to Backlog, Wireframe annotations were put up For Review, and Wireframe designs were deemed as Done. 
+![Trello Board](./docs/trello/willdantrello11.png)
+
+#### Wireframe annotations were moved to Done, the Video Presentation was the last task to be done, after which R6 Screenshots could also be completed. 
+![Trello Board](./docs/trello/willdantrello12.png)
+
+#### All tasks Done
+![Trello Board](./docs/trello/willdantrello13.png)
